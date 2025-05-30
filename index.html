@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MinimalLux - फ्री ब्लैक एंड व्हाइट वेबसाइट</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --white: #ffffff;
+            --light-grey: #f8f8f8;
+            --black: #000000;
+            --charcoal: #333333;
+            --gold: #d4af37;
+            --silver: #c0c0c0;
+            --beige: #f5f5dc;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--white);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--black);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--gold);
+        }
+        
+        .logo i {
+            margin-right: 8px;
+            color: var(--gold);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--black);
+        }
+        
+        .header-icons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .icon-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            position: relative;
+            color: var(--charcoal);
+            transition: var(--transition);
+        }
+        
+        .icon-btn:hover {
+            color: var(--gold);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background-color: var(--gold);
+            color: var(--white);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(248, 248, 248, 0.9)), url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?ixlib=rb-4.0.3') no-repeat center center/cover;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--black);
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin: 0 auto 30px;
+            max-width: 600px;
+            color: var(--charcoal);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--black);
+            color: var(--white);
+            padding: 12px 32px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: 2px solid var(--black);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--black);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--black);
+            border: 2px solid var(--black);
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--black);
+            color: var(--white);
+        }
+        
+        /* Featured Products */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: var(--black);
+            display: inline-block;
+            padding-bottom: 15px;
+            position: relative;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: var(--white);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-image {
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+            background-color: var(--light-grey);
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--gold);
+            color: var(--white);
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-category {
+            font-size: 12px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--black);
+            font-weight: 600;
+        }
+        
+        .product-price {
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .action-btn {
+            flex: 1;
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .action-btn:hover {
+            background: var(--gold);
+        }
+        
+        .quick-view-btn {
+            background: transparent;
+            color: var(--black);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .quick-view-btn:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+        
+        /* About Section */
+        .about-section {
+            background-color: var(--light-grey);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--black);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Instagram Feed */
+        .instagram-section {
+            background-color: var(--white);
+        }
+        
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+        }
+        
+        .instagram-item {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 4px;
+        }
+        
+        .instagram-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .instagram-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .instagram-item:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .instagram-item:hover:after {
+            opacity: 1;
+        }
+        
+        .instagram-handle {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .instagram-handle a {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+        
+        .instagram-handle a:hover {
+            color: var(--gold);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 80px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: var(--gold);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+        }
+        
+        .footer-column p {
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--gold);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            height: 100%;
+            background: var(--white);
+            z-index: 1000;
+            padding: 30px;
+            transition: var(--transition);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-nav.active {
+            left: 0;
+        }
+        
+        .mobile-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .close-nav {
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--black);
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+        }
+        
+        .mobile-nav ul li {
+            margin-bottom: 20px;
+        }
+        
+        .mobile-nav ul li a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 18px;
+            font-weight: 500;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .instagram-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .instagram-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .btn {
+                display: block;
+                margin-bottom: 15px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .instagram-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+        }
+
+        /* GitHub Guide Section */
+        .guide-section {
+            background-color: var(--light-grey);
+            padding: 60px 0;
+        }
+
+        .guide-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .guide-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif;
+            color: var(--black);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .guide-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .guide-steps {
+            counter-reset: step-counter;
+        }
+
+        .guide-step {
+            margin-bottom: 30px;
+            padding-left: 50px;
+            position: relative;
+        }
+
+        .guide-step:before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 35px;
+            height: 35px;
+            background: var(--gold);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .guide-step h3 {
+            margin-bottom: 10px;
+            color: var(--charcoal);
+        }
+
+        .guide-step p {
+            margin-bottom: 10px;
+            color: var(--charcoal);
+        }
+
+        .guide-step img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-top: 10px;
+            border: 1px solid #eee;
+        }
+
+        .github-link {
+            display: inline-block;
+            background: var(--black);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .github-link:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .github-link i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo"><i class="fas fa-crown"></i>Minimal<span>Lux</span></a>
+            
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">होम</a></li>
+                    <li><a href="#">शॉप</a></li>
+                    <li><a href="#">कलेक्शन</a></li>
+                    <li><a href="#">हमारे बारे में</a></li>
+                    <li><a href="#">संपर्क करें</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-icons">
+                <button class="icon-btn search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="icon-btn user-btn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="icon-btn cart-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">3</span>
+                </button>
+                <button class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>सादगी में शान</h1>
+            <p>आधुनिक जीवन के लिए डिज़ाइन किया गया हमारा मिनिमलिस्ट कलेक्शन खोजें। गुणवत्तापूर्ण सामग्री, कालातीत डिज़ाइन और स्थायी उत्पादन।</p>
+            <div class="hero-btns">
+                <a href="#" class="btn">कलेक्शन देखें</a>
+                <a href="#" class="btn btn-outline">नए आगमन</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Products -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>फीचर्ड उत्पाद</h2>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=800&q=80" alt="Black Minimalist Watch">
+                        <div class="product-badge">नया</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">एक्सेसरीज</div>
+                        <h3 class="product-title">ब्लैक मिनिमलिस्ट वॉच</h3>
+                        <div class="product-price">₹5,499</div>
+                        <div class="product-actions">
+                            <button class="action-btn">
+                                <i class="fas fa-shopping-cart"></i> कार्ट में डालें
+                            </button>
+                            <button class="action-btn quick-view-btn">
+                                <i class="fas fa-eye"></i> देखें
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=800&q=80" alt="White Cotton Shirt">
+                        <div class="product-badge">बेस्टसेलर</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">कपड़े</div>
+                        <h3 class="product-title">व्हाइट कॉटन शर्ट</h3>
+                        <div class="product-price">₹2,999</div>
+                        <div class="product-actions">
+                            <button class="action-btn">
+                                <i class="fas fa-shopping-cart"></i> कार्ट में डालें
+                            </button>
+                            <button class="action-btn quick-view-btn">
+                                <i class="fas fa-eye"></i> देखें
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1600857062241-98c235352606?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=800&q=80" alt="Leather Wallet">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">एक्सेसरीज</div>
+                        <h3 class="product-title">लेदर वॉलेट</h3>
+                        <div class="product-price">₹3,499</div>
+                        <div class="product-actions">
+                            <button class="action-btn">
+                                <i class="fas fa-shopping-cart"></i> कार्ट में डालें
+                            </button>
+                            <button class="action-btn quick-view-btn">
+                                <i class="fas fa-eye"></i> देखें
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=800&q=80" alt="Gold Frame Sunglasses">
+                        <div class="product-badge">सेल</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">एक्सेसरीज</div>
+                        <h3 class="product-title">गोल्ड फ्रेम सनग्लासेस</h3>
+                        <div class="product-price">₹4,299</div>
+                        <div class="product-actions">
+                            <button class="action-btn">
+                                <i class="fas fa-shopping-cart"></i> कार्ट में डालें
+                            </button>
+                            <button class="action-btn quick-view-btn">
+                                <i class="fas fa-eye"></i> देखें
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="section about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>हमारा दर्शन</h2>
+                    <p>2020 में स्थापित, MinimalLux का जन्म ऐसे कालातीत टुकड़े बनाने की इच्छा से हुआ था जो रुझानों से परे हैं। हम मात्रा से अधिक गुणवत्ता में विश्वास करते हैं, प्रत्येक वस्तु को वर्षों तक चलने के लिए डिज़ाइन करते हैं।</p>
+                    <p>हमारी सामग्री नैतिक आपूर्तिकर्ताओं से सावधानीपूर्वक प्राप्त की जाती है, और प्रत्येक टुकड़े को विस्तार पर ध्यान देने के साथ तैयार किया जाता है। कम ज्यादा है - यही हमारा मंत्र है।</p>
+                    <p>हम स्थायी प्रथाओं और पारदर्शी उत्पादन प्रक्रियाओं के लिए प्रतिबद्ध हैं। हमारा लक्ष्य कचरे को कम करना और ऐसे उत्पाद बनाना है जिन्हें आप वर्षों तक संजोएंगे।</p>
+                    <a href="#" class="btn btn-outline" style="margin-top: 20px; display: inline-block">हमारी कहानी</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=700&q=80" alt="हमारा वर्कशॉप">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- GitHub Guide Section -->
+    <section class="guide-section">
+        <div class="container guide-container">
+            <h2 class="guide-title">GitHub पर फ्री वेबसाइट कैसे बनाएं</h2>
+            
+            <div class="guide-steps">
+                <div class="guide-step">
+                    <h3>चरण 1: GitHub अकाउंट बनाएं</h3>
+                    <p><a href="https://github.com" target="_blank">GitHub.com</a> पर जाएं और "Sign up" बटन पर क्लिक करें</p>
+                    <p>अपना यूजरनेम, ईमेल और पासवर्ड डालें</p>
+                </div>
+                
+                <div class="guide-step">
+                    <h3>चरण 2: नई Repository बनाएं</h3>
+                    <p>GitHub डैशबोर्ड पर, "New" बटन पर क्लिक करें</p>
+                    <p>Repository नाम डालें (जैसे: my-website)</p>
+                    <p>सुनिश्चित करें कि repository "Public" है</p>
+                </div>
+                
+                <div class="guide-step">
+                    <h3>चरण 3: कोड अपलोड करें</h3>
+                    <p>Repository में जाएं और "Add file" > "Create new file" चुनें</p>
+                    <p>फ़ाइल का नाम "index.html" रखें</p>
+                    <p>इस पेज का सारा कोड कॉपी करके यहाँ पेस्ट करें</p>
+                </div>
+                
+                <div class="guide-step">
+                    <h3>चरण 4: GitHub Pages सक्षम करें</h3>
+                    <p>Repository में "Settings" टैब पर जाएं</p>
+                    <p>बाईं ओर "Pages" पर क्लिक करें</p>
+                    <p>"Branch" के अंतर्गत "main" चुनें और "/ (root)" फोल्डर चुनें</p>
+                    <p>"Save" पर क्लिक करें</p>
+                </div>
+                
+                <div class="guide-step">
+                    <h3>चरण 5: अपनी वेबसाइट देखें</h3>
+                    <p>कुछ मिनट बाद, आपकी वेबसाइट इस लिंक पर लाइव हो जाएगी:</p>
+                    <p><code>https://&lt;your-username&gt;.github.io/&lt;repository-name&gt;</code></p>
+                    <a href="https://github.com" target="_blank" class="github-link">
+                        <i class="fab fa-github"></i> GitHub पर जाएं
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>MinimalLux</h3>
+                    <p>आधुनिक जीवन के लिए कालातीत डिजाइन। गुणवत्तापूर्ण सामग्री, नैतिक उत्पादन।</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>शॉप</h3>
+                    <ul>
+                        <li><a href="#">सभी उत्पाद</a></li>
+                        <li><a href="#">नए आगमन</a></li>
+                        <li><a href="#">बेस्टसेलर</a></li>
+                        <li><a href="#">सेल आइटम</a></li>
+                        <li><a href="#">गिफ्ट कार्ड</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>ग्राहक सेवा</h3>
+                    <ul>
+                        <li><a href="#">हमसे संपर्क करें</a></li>
+                        <li><a href="#">सामान्य प्रश्न</a></li>
+                        <li><a href="#">शिपिंग और रिटर्न</a></li>
+                        <li><a href="#">साइज गाइड</a></li>
+                        <li><a href="#">भुगतान विकल्प</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>संपर्क जानकारी</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 डिजाइन स्ट्रीट, मुंबई</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> hello@minimallux.com</li>
+                        <li><i class="fab fa-whatsapp"></i> +91 98765 43210</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 MinimalLux. सर्वाधिकार सुरक्षित। | <i class="fas fa-heart" style="color: var(--gold)"></i> के साथ डिज़ाइन किया गया</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <div class="mobile-nav-header">
+            <a href="#" class="logo">Minimal<span>Lux</span></a>
+            <div class="close-nav">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <ul>
+            <li><a href="#" class="active">होम</a></li>
+            <li><a href="#">शॉप</a></li>
+            <li><a href="#">कलेक्शन</a></li>
+            <li><a href="#">हमारे बारे में</a></li>
+            <li><a href="#">संपर्क करें</a></li>
+            <li><a href="#">अकाउंट</a></li>
+            <li><a href="#">कार्ट</a></li>
+        </ul>
+    </div>
+    
+    <div class="overlay"></div>
+    
+    <script>
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const closeNav = document.querySelector('.close-nav');
+        const overlay = document.querySelector('.overlay');
+        
+        hamburger.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+            overlay.classList.add('active');
+        });
+        
+        closeNav.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        
+        overlay.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        
+        // Cart functionality
+        const cartBtns = document.querySelectorAll('.action-btn');
+        const cartCount = document.querySelector('.cart-count');
+        let count = 3;
+        
+        cartBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                if(this.querySelector('.fa-shopping-cart')) {
+                    count++;
+                    cartCount.textContent = count;
+                    
+                    // Add animation effect
+                    this.innerHTML = '<i class="fas fa-check"></i> जोड़ा गया';
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fas fa-shopping-cart"></i> कार्ट में डालें';
+                    }, 1500);
+                }
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
